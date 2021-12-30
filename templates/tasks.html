@@ -1,0 +1,488 @@
+{% extends 'base.html' %}
+{% block title %}{{ title }} {% endblock %}
+{% block content %}
+
+<div class="task-content">
+
+    <div class="task-content-head">
+        <h1>Projects</h1>
+        <hr>
+    </div>
+    <div class="task-intro">
+        <h1>Project: Linux Standardization</h1>
+        <!-- <img src="../static/images/linux_standardization.png" alt="linux Standardization"> -->
+
+        <!-- <div class="patching-Progress">
+            <div id="linuxStandardization-Bar">25% complete</div>
+        </div> -->
+       
+
+    </div>
+    <div class="training-task-intro">
+        <h2>Training: Linux Standardization</h2>
+
+        <!-- <div class="patching-Progress">
+            <div id="training-linuxStandardization-Bar-complete">60% Complete</div>
+            <div id="training-linuxStandardization-Bar-inWork">20% In Work</div>
+            <div id="training-linuxStandardization-Bar-notStarted"> </div>
+
+
+        </div> -->
+
+    </div>
+    <div class="task-content-body">
+        <div class="project-training">
+            <table>
+                <tr>
+                    <th>#</th>
+                    <th>Module</th>
+                    <th>Comment</th>
+                    <th>Person</th>
+                    <th>Status</th>
+                    <th>Due</th>
+                </tr>
+                <tr>
+                    <td>M1</td>
+                    <td>Introduction to Linux Scripting</td>
+                    <td>Powerful bash script</td>
+                    <td>Jane</td>
+                    <td>
+                        <select name="status" id="status">
+                            <option value="complete">Complete</option>
+                            <option value="InWork">In-Work</option>
+                            <option value="notStarted">Not Started</option>
+                        </select>
+                    </td>
+                    <td>07/31/2021</td>
+                </tr>
+                <tr>
+                    <td>M2</td>
+                    <td>Auto-mounting</td>
+                    <td>Best practice</td>
+                    <td>Alberto</td>
+                    <td>
+                        <select name="status" id="status">
+                            <option value="complete">Complete</option>
+                            <option value="InWork">In-Work</option>
+                            <option value="notStarted">Not Started</option>
+                        </select>
+                    </td>
+                    <td>08/03/2021</td>
+                </tr>
+                <tr>
+                    <td>M3</td>
+                    <td>Crontab</td>
+                    <td>Best Practice</td>
+                    <td>Jane</td>
+                    <td>
+                        <select name="status" id="status">
+                            <option value="complete">Complete</option>
+                            <option value="InWork">In-Work</option>
+                            <option value="notStarted">Not Started</option>
+                        </select>
+                    </td>
+                    <td>08/13/2021</td>
+                </tr>
+                <tr>
+                    <td>M4</td>
+                    <td>Install of core.ray</td>
+                    <td>Best practice</td>
+                    <td>Jane</td>
+                    <td>
+                        <select name="status" id="status">
+                            <option value="complete">Complete</option>
+                            <option value="InWork">In-Work</option>
+                            <option value="notStarted">Not Started</option>
+                        </select>
+                    </td>
+                    <td>08/20/2021</td>
+                </tr>
+                <tr>
+                    <td>M5</td>
+                    <td>Kickstart</td>
+                    <td>Cyber security approval</td>
+                    <td>Alberto</td>
+                    <td><select name="status" id="status">
+                            <option value="complete">Complete</option>
+                            <option value="InWork">In-Work</option>
+                            <option value="notStarted">Not Started</option>
+                        </select></td>
+                    <td>09/15/2021</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+
+        </div>
+        <div class="project-task">
+            <div class="training-task-intro">
+                <h2>Task: Linux Standardization</h2>
+               
+
+            </div>
+
+            <div>
+                <table>
+                    <tr>
+                        <th>#</th>
+                        <th>Task</th>
+                        <th>Comment</th>
+                        <th>Person</th>
+                        <th>Status</th>
+                        <th>Due</th>
+                        <th>Training</th>
+                    </tr>
+                    <tr>
+                        <td>T001</td>
+                        <td>Script created remote root execute script</td>
+                        <td></td>
+                        <td>Rick</td>
+                        <td>
+                            <select name="status" id="status">
+                                <option value="complete" selected>Complete</option>
+                                <option value="InWork">In-Work</option>
+                                <option value="notStarted">Not Started</option>
+                            </select>
+                        </td>
+                        <td>08/03/2021</td>
+                        <td>M1</td>
+
+                    </tr>
+                    <td>T002 </td>
+                    <td>Create systems needing upgrades</td>
+                    <td></td>
+                    <td>Rick</td>
+                    <td>
+                        <select name="status" id="status">
+                            <option value="complete"> Complete</option>
+                            <option value="InWork">In-Work</option>
+                            <option value="notStarted">Not Started</option>
+                        </select>
+                    </td>
+                    <td>08/03/2021</td>
+                    <td>M1</td>
+                    </tr>
+                    <tr>
+                        <td>T003 </td>
+                        <td>Automounting Best practice implemented</td>
+                        <td>(exceptions noted)</td>
+                        <td>Alberto</td>
+                        <td>
+                            <select name="status" id="status">
+                                <option value="complete">Complete</option>
+                                <option value="InWork">In-Work</option>
+                                <option value="notStarted">Not Started</option>
+                            </select>
+                        </td>
+
+                        <td>08/08/2021</td>
+                        <td>M2</td>
+                    </tr>
+                    <tr>
+                        <td>T004</td>
+                        <td>Automounting Ghost implemented</td>
+                        <td></td>
+                        <td>Jane</td>
+                        <td>
+                            <select name="status" id="status">
+                                <option value="complete">Complete</option>
+                                <option value="InWork">In-Work</option>
+                                <option value="notStarted">Not Started</option>
+                            </select>
+                        </td>
+                        <td>08/08/2021</td>
+                        <td>M2</td>
+                    </tr>
+                    <tr>
+                        <td>T005</td>
+                        <td>Crontab local script complete and distributed</td>
+                        <td></td>
+                        <td>Jane</td>
+                        <td>
+                            <select name="status" id="status">
+                                <option value="complete">Complete</option>
+                                <option value="InWork">In-Work</option>
+                                <option value="notStarted">Not Started</option>
+                            </select>
+                        </td>
+                        <td>08/20/2021</td>
+                        <td>M3</td>
+                    </tr>
+                    <tr>
+                        <td>T006</td>
+                        <td>Crontab distributed</td>
+                        <td></td>
+                        <td>Jane</td>
+                        <td>
+                            <select name="status" id="status">
+                                <option value="complete">Complete</option>
+                                <option value="InWork">In-Work</option>
+                                <option value="notStarted">Not Started</option>
+                            </select>
+                        </td>
+                        <td>08/20/2021</td>
+                        <td>M3</td>
+                    </tr>
+                    <tr>
+                        <td>T007</td>
+                        <td>Crontab hourly, daily, nightly, weekly, monthly, local complete</td>
+                        <td></td>
+                        <td>Julia</td>
+                        <td>
+                            <select name="status" id="status">
+                                <option value="complete">Complete</option>
+                                <option value="InWork">In-Work</option>
+                                <option value="notStarted">Not Started</option>
+                            </select>
+                        </td>
+                        <td>08/20/2021</td>
+                        <td>M3</td>
+                    </tr>
+                    <tr>
+                        <td>T008</td>
+                        <td>Crontab @reboot implemented</td>
+                        <td></td>
+                        <td>Julia</td>
+                        <td>
+                            <select name="status" id="status">
+                                <option value="complete">Complete</option>
+                                <option value="InWork">In-Work</option>
+                                <option value="notStarted">Not Started</option>
+                            </select>
+                        </td>
+                        <td>08/20/2021</td>
+                        <td>M3</td>
+                    </tr>
+                    <tr>
+                        <td>T009</td>
+                        <td>core.ray installed</td>
+                        <td></td>
+                        <td>Julia</td>
+                        <td>
+                            <select name="status" id="status">
+                                <option value="complete">Complete</option>
+                                <option value="InWork">In-Work</option>
+                                <option value="notStarted">Not Started</option>
+                            </select>
+                        </td>
+                        <td>08/20/2021</td>
+                        <td>M4</td>
+                    </tr>
+                    <tr>
+                        <td>T010</td>
+                        <td>core.ray cron created in domain</td>
+                        <td></td>
+                        <td>Jane</td>
+                        <td>
+                            <select name="status" id="status">
+                                <option value="complete">Complete</option>
+                                <option value="InWork" selected>In-Work</option>
+                                <option value="notStarted">Not Started</option>
+                            </select>
+                        </td>
+                        <td>09/15/2021</td>
+                        <td>M4</td>
+                    </tr>
+                    <tr>
+                        <td>T011</td>
+                        <td>core.ray repos created in domain</td>
+                        <td></td>
+                        <td>Jane</td>
+                        <td>
+                            <select name="status" id="status">
+                                <option value="complete">Complete</option>
+                                <option value="InWork" selected>In-Work</option>
+                                <option value="notStarted">Not Started</option>
+                            </select>
+                        </td>
+                        <td>09/15/2021</td>
+                        <td>M4</td>
+                    </tr>
+                    <tr>
+                        <td>T012</td>
+                        <td>Kickstart install</td>
+                        <td></td>
+                        <td>Jane</td>
+                        <td>
+                            <select name="status" id="status">
+                                <option value="complete">Complete</option>
+                                <option value="InWork">In-Work</option>
+                                <option value="notStarted" selected>Not Started</option>
+                            </select>
+                        </td>
+                        <td>11/30/2021</td>
+                        <td>M5</td>
+                    </tr>
+                    <tr>
+                        <td>T013</td>
+                        <td>Kickstart latest release of RHEL installed</td>
+                        <td></td>
+                        <td>Jane</td>
+                        <td>
+                            <select name="status" id="status">
+                                <option value="complete">Complete</option>
+                                <option value="InWork">In-Work</option>
+                                <option value="notStarted" selected>Not Started</option>
+                            </select>
+                        </td>
+                        <td>11/30/2021</td>
+                        <td>M5</td>
+                    </tr>
+                    <tr>
+                        <td>T014</td>
+                        <td>Kickstart scripted to need lab needs</td>
+                        <td></td>
+                        <td>Jane</td>
+                        <td>
+                            <select name="status" id="status">
+                                <option value="complete">Complete</option>
+                                <option value="InWork">In-Work</option>
+                                <option value="notStarted" selected>Not Started</option>
+                            </select>
+                        </td>
+                        <td>11/30/2021</td>
+                        <td>M5</td>
+                    </tr>
+                    <tr>
+                        <td>T015</td>
+                        <td>Kickstart upgrades on spreadsheet</td>
+                        <td></td>
+                        <td>Rick</td>
+                        <td>
+                            <select name="status" id="status">
+                                <option value="complete">Complete</option>
+                                <option value="InWork">In-Work</option>
+                                <option value="notStarted" selected>Not Started</option>
+                            </select>
+                        </td>
+                        <td>11/30/2021</td>
+                        <td>M5</td>
+                    </tr>
+                    <tr>
+                        <td>T016</td>
+                        <td>Kickstart updgrades complete</td>
+                        <td></td>
+                        <td>Julia</td>
+                        <td>
+                            <select name="status" id="status">
+                                <option value="complete">Complete</option>
+                                <option value="InWork">In-Work</option>
+                                <option value="notStarted" selected>Not Started</option>
+                            </select>
+                        </td>
+                        <td>11/30/2021</td>
+                        <td>M5</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                </table>
+
+            </div>
+            <div>
+                <div class="training-task-intro">
+                    <h2>Deliverables</h2>
+                </div>
+
+                <table>
+                    <tr>
+                        <th>#</th>
+                        <th>Item</th>
+                        <th>Comments</th>
+                        <th>Person</th>
+                        <th>Status</th>
+                        <th>Due</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>List of upgrade systems</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Automounting implement & Best Practice</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Standardize crontab</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>core.ray implemented</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Kickstart installed</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Workstation installed</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+{% endblock %}
+{% block right_nav %}
+<div class="right-links">
+
+
+    <a href="{{ url_for('linux')}}">Training</a>
+
+    <a href="{{ url_for('videos')}}">Videos</a>
+
+    <a href="{{ url_for('cheatsheet')}}">Cheatsheet</a>
+
+
+</div>
+
+
+{% endblock %}

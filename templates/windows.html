@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}{{ title }} {% endblock %}
+{% block content %} 
+      <div class="container">
+        <h1>{{name}}</h1>
+        <ul>
+            <ul>
+                {% for i in training_list%}
+                  <li>{{ i }}</li>
+                {% endfor %}
+              </ul>
+        </ul>
+      </div>
+{% endblock %}
+ 

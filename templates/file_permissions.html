@@ -1,0 +1,79 @@
+{% extends 'cheatsheet.html'%}
+{% block commands %}
+
+
+<div class="filePermission-commands">
+    <h2>File Permission Commands</h2>
+    <table>
+      <th class="cmd">Command </th>
+      <th> </th>
+      <th class="desc">Description </th>
+      <th>Play Video</th>
+      <tr>
+        <td><code>ls-l</code></td>
+        <td><a href="/"><img src="https://img.icons8.com/small/50/000000/copy.png" /></a></td>
+        <td>Show file type and access permission</td>
+        <td><a href="{{ url_for('videos')}}"><img src="../static/images/play_icon.png" /></a></td>
+
+      </tr>
+      <tr>
+        <td><code>r</code></td>
+        <td><a href="/"><img src="https://img.icons8.com/small/50/000000/copy.png" /></a></td>
+        <td>Read permission</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code>w</code></td>
+        <td><a href="/"><img src="https://img.icons8.com/small/50/000000/copy.png" /></a></td>
+        <td>Write permission</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code>x</code></td>
+        <td><a href="/"><img src="https://img.icons8.com/small/50/000000/copy.png" /></a></td>
+        <td>Execute permission</td>
+        <td><a href="{{ url_for('videos')}}"><img src="../static/images/play_icon.png" /></a></td>
+
+      </tr>
+      <tr>
+        <td><code>-=</code></td>
+        <td><a href="/"><img src="https://img.icons8.com/small/50/000000/copy.png" /></a></td>
+        <td>No permission</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code>Chown user</code></td>
+        <td><a href="/"><img src="https://img.icons8.com/small/50/000000/copy.png" /></a></td>
+        <td>For changing the ownership of a file/directory</td>
+        <td><a href="{{ url_for('videos')}}"><img src="../static/images/play_icon.png" /></a></td>
+
+      </tr>
+      <tr>
+        <td><code>Chown user:group filename</code></td>
+        <td><a href="/"><img src="https://img.icons8.com/small/50/000000/copy.png" /></a></td>
+        <td>Change the user as well as group for a file or directory</td>
+        <td></td>
+      </tr>
+
+    </table>
+  </div>
+  {% endblock %}
+
+  {%block right_nav%}
+<div class="right-links">
+  <a href="{{ url_for('basic_commands')}}">Basic Commands</a>
+  <a id="select-right" href="{{ url_for('file_permissions')}}">File Permissions</a>
+  <a href="#">Network</a>
+  <a href="#">File Management</a>
+  <a href="#">File Compression</a>
+  <a href="#">File Editor</a>
+  <a href="#">Directory Utilities</a>
+  <a href="#">Scripting</a>
+  <a href="#">Memory and Process</a>
+  <a href="#">Disk Utilities</a>
+  <a href="#">Misc Commands</a>
+</div>
+
+
+
+{% endblock %}

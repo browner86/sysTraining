@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block title %}{{ title }} {% endblock %}
+
+<!-- left nav  -->
+{% block left_nav%}
+<div class="left-side-nav side-nav" id="left-nav">
+  <a class="btn" href="/">General</a>
+  <a class="btn" href="/">Cron</a>
+  <a id="select-left" class="select" href="{{ url_for('basic_commands')}}">Commands</a>
+  <a class="btn" href="{{ url_for('linux')}}">Patching</a>
+  <a class="btn" href="/">Auto-Mounting</a>
+  <a class="btn" href="/">Scripts</a>
+  <a class="btn" href="/">Password</a>
+  <a class="btn" href="/">Vim</a>
+  <a class="btn" href="/">Security</a>
+  <a class="btn" href="/">Bash</a>
+  <a class="btn" href="/">SH</a>
+  <a class="btn" href="/">KSH</a>
+  <a class="btn" href="/">CSH</a>
+  <a class="btn" href="/">Boot-up</a>
+  <a class="btn" href="/">systemd</a>
+
+</div>
+
+{% endblock %}
+
+{% block content %}
+<div class="cheatsheet-content">
+  <div class="content-head">
+    <h1>{{name}}</h1>
+    <hr>
+  </div>
+  <div class="cheatsheet-intro">
+    <h1>Linux Commands</h1>
+  </div>
+  <div class="cheatsheet-body">
+    <div id="basic-commands" class="linux-commands">
+      {% block commands%}
+      {%endblock%}
+     
+      <!-- <a target="_blank" href="https://icons8.com/icon/43524/copy">Copy</a> icon by <a target="_blank"
+        href="https://icons8.com">Icons8</a> -->
+    </div>
+    {% include 'terminal.html' %}
+
+   
+  </div>
+</div>
+{% endblock %}
+
+
+{%block right_nav%}
+<div class="right-links">
+  <a id="select-right" href="{{ url_for('basic_commands')}}">Basic Commands</a>
+  <a href="{{ url_for('file_permissions')}}">File Permissions</a>
+  <a href="/">Network</a>
+  <a href="/">File Management</a>
+  <a href="/">File Compression</a>
+  <a href="/">File Editor</a>
+  <a href="/">Directory Utilities</a>
+  <a href="/">Scripting</a>
+  <a href="/">Memory and Process</a>
+  <a href="/">Disk Utilities</a>
+  <a href="/">Misc Commands</a>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,462 @@
+{% extends 'base.html' %}
+{% block title %}
+{{ title }}
+{% endblock %}
+
+
+<!-- left nav  -->
+<!-- {% block left_nav%}
+<div class="left-side-nav side-nav" id="left-nav">
+  <a class="btn" href="/">Cron</a>
+  <a class="btn" href="">Commands</a>
+  <a id="select-left" class="select" href="/">Patching</a>
+  <a class="btn" href="/">Auto-Mounting</a>
+  <a class="btn" href="/">Scripts</a>
+  <a class="btn" href="/">Password</a>
+  <a class="btn" href="/">Vim</a>
+  <a class="btn" href="/">Security</a>
+  <a class="btn" href="/">Bash</a>
+  <a class="btn" href="/">SH</a>
+  <a class="btn" href="/">KSH</a>
+  <a class="btn" href="/">CSH</a>
+  <a class="btn" href="/">Boot-up</a>
+  <a class="btn" href="/">systemd</a>
+  
+</div>
+
+{% endblock %} -->
+
+
+<!-- main content -->
+{% block content %}
+<div class="main-content">
+<div class="content-head">
+  <h1>{{name}}</h1>
+  <hr>
+</div>
+<!-- <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" -->
+<!-- body text="#000000" bgcolor="#FFFFFF" link="#000000" vlink="#000000" alink="#000000"> -->
+<div id="content-video">
+  <!-- <video width="720" height="480" controls>
+    <source src="{{url_for('static', filename='video/LinuxPatching.mp4')}}" type="video/mp4">
+    
+  Your browser does not support the video tag.
+  </video> -->
+</div>
+<div id="content-intro">
+  <h2><b>Patching Linux</b></h2>
+  <ul>
+    <li>February 28, 2021</li>
+    <li>O. Chad Cottrell</li>
+    <li>Sr. Systems Administrator II</li>
+    <li>Instructor</li>
+
+  </ul>
+  <br>
+  <h3>Notes:</h3>
+  <ul>
+  <li>Boost glide hyliersonic system</li>
+  <li>Lower Tier Air and Missile Defense Sensor (LTAMDS) </li>
+  <li>SM-6® missile</li>
+  <li>The Ku-band Radio Frequency System (KRFS)</li>
+  <li>Intermediate Level – No lirerequisite</li>
+  <li>Reference Document</li>
+  <li>Home - CAPS-KB (sharelioint.us)</li>
+  <li>Linux_Patching_User_guide_v4.001.docx</li>
+</ul>
+  <h3><b>Subject Matter Expert</b></h3>
+  <ul>
+    <li>SME: Sandra Villard</li>
+    <!-- <ul> -->
+    <li>Sandra.S.Villard@raytheon.com</li>
+    <li>520-665-5919 </li>
+    <!-- </ul> -->
+    <li>SME: Jon Aguilar</li>
+    <!-- <ul> -->
+    <li>Jonathon.S.Aguilar@raytheon.com</li>
+    <li>520-665-5573</li>
+    <!-- </ul> -->
+    <li>SME: John Jurgensmeier</li>
+    <!-- <ul> -->
+    <li>jajurgensmeier@raytheon.com</li>
+    <li>520.794.7574</li>
+    <!-- </ul> -->
+  </ul>
+  <h3 ><b> Instructor</b></h3>
+  <h4>O. Chad Cottrell</h4>
+  <ul>
+    <li>Chad_Cottrell@Raytheon.com </li>
+    <li>Member of the ASSIST Team</li>
+    <li>Been with Raytheon since it was Hughes Aircraft (more the 25 years)</li>
+    <li>Left for 7 years to consulted for a few years, then contracted to the Army</li>
+    <li>Then came back – System Admin </li>
+  </ul>
+</div>
+
+
+<div id="content-body">
+  <h2 ><b>Lesson Plan</b></h2>
+  <ul>
+    <li>Overview</li>
+    <li>First time setup</li>
+    <li>Regular Patch Cycle</li>
+  </ul>
+  <h2><b>Patching Fundamentals</b> </h2>
+  <!-- <p>Need five things:</p> -->
+  <ul>
+    <li>Patches and dependencies</li>
+    <li>Repository to hold the patches</li>
+    <li>“repodata” directory with information in it to resolve dependencies</li>
+    <li>Repo file (rhel6.repo, rhel7.repo) to pointing to the repository with the patches and repodata directory</li>
+    <li>Command to install Patches “yum install –y”</li>
+  </ul>
+  <h3><b>1. Patches and Dependencies</b></h3>
+  <ul>
+    <li>Red Hat workstation 7.9 – 5366 liackages (liatches or rlims)</li>
+    <li>Patches come out they are in a liackage with extension rlim</li>
+    <li>Many liackages have deliendences on other liackages</li>
+    <li>Patches come assuming deliendences are available</li>
+    <li> Must have both</li>
+    <li> New Packages (Patches) All liackages on install DVD (5366)</li>
+  </ul>
+  <h3 ><b>2. Repository to Hold the Patches</b></h3>
+  <h3 ><b>3. “repodata” directory with information in it to resolve dependencies</b>
+  </h3><ul>
+    <li># Createrepo</li>
+  </ul>
+  
+  <h3 ><b>4. Repo file (rhel6.repo, rhel7.repo) to pointing to the repository with the
+      patches and repodata directory</b></h3>
+  <p>(Example of a rhel7 server)</p>
+  <pre><b>/etc/yum.repos.d/rhel7.repo:</b></p>
+[local_repo_server]</br>
+name=local_repo_server<br>
+baseurl=file:///apps/repos/redhat/7/server/<br>
+#baseurl=http://rh-sat.sp.net/repos/redhat/7/server/<br>
+gpgcheck=0<br>
+repo_gpgcheck=0<br>
+protect=0<br>
+enabled=1<br>
+skip-broken=1<br>
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release<br>
+.<br>
+.<br>
+.<br>
+&gt; yum install -y
+</pre>
+  <p> </p>
+  <h3 ><b>5. Command to install Patches “yum update –y”
+    </b></h3>
+  <p><b># yum clean all (</b>This will clean out any pre-existing repository entries)</p>
+  <p><b># yum update –y </b>(This will execute the update process)</p>
+  <h3 ><b>The Final Structure</b></h3>
+  <p>On Each system</p>
+  <h3 ><b>
+
+
+      “Patch setup”</b></h3>
+  <h3 ><b>In Tips There is a Spreadsheet with the Steps</b></h3>
+  <p>https://raytheon.sharepoint.us/sites/csar/KB/default.aspx</p>
+  <h3 ><b>Step 1 - Know What You Need</b></h3>
+  <ul>
+    <li>You will need to know what major versions of RHEL are on your network</li>
+    <li>Run the following command on each Linux on your system on your network</li>
+    <p><b> # cat /etc/redhat-release</b></p>
+    <li>Output will look something like this</li>
+    <p><b> <u>R</u>ed <u>H</u>at <u>E</u>nterprise <u>L</u>inux <u>Workstation</u> release <u>7.9</u> (Maipo)</b></p>
+    <li>You will need the rhel7.9-Workstation-sbXxxx.iso &amp; r79since.tgz</li>
+  </ul>
+  <h3 ><b>Summery of Next Steps</b></h3>
+  <ul>
+    <li>Create DVDs of install ISO, since</li>
+    <p> Patches, update_repo.bash,</p>
+    <p> repo files</p>
+    <li>Create directories patchfiles</li>
+    <p> and patchISOs</p>
+    <li>Copy DVD’s data to correct</li>
+    <p> location</p>
+    <li>Run update_repo.bash</li>
+    <li>Copy package out of ISO to</li>
+    <p> repositories</p>
+    <li>Update ADDON repositories with</li>
+    <p> repodata using createrepo</p>
+    <li>Copy rhelX.repo to all systems</li>
+    <li>Run yum install –y on all systems</li>
+    <li>Validate that patching worked</li>
+  </ul>
+  <h3 ><b>Summery of Next Steps</b></h3>
+  <ul>
+    <li>Create DVDs of install ISO, since</li>
+    <p> Patches, update_repo.bash,</p>
+    <p> repo files</p>
+    <li>Create directories patchfiles</li>
+    <p> and patchISOs</p>
+    <li>Copy DVD’s data to correct</li>
+    <p> location</p>
+    <li>Run update_repo.bash</li>
+    <li>Copy package out of ISO to</li>
+    <p> repositories</p>
+    <li>Update ADDON repositories with</li>
+    <p> repodata using createrepo</p>
+    <li>Copy rhelX.repo to all systems</li>
+    <li>Run yum install –y on all systems</li>
+    <li>Validate that patching worked</li>
+  </ul>
+  <h3 ><b>Summery of Next Steps</b></h3>
+  <ul>
+    <li>Create DVDs of install ISO, since</li>
+    <p> Patches, update_repo.bash,</p>
+    <p> repo files</p>
+    <li>Create directories patchfiles</li>
+    <p> and patchISOs</p>
+    <li>Copy DVD’s data to correct</li>
+    <p> location</p>
+    <li>Run update_repo.bash</li>
+    <li>Copy package out of ISO to</li>
+    <p> repositories</p>
+    <li>Update ADDON repositories with</li>
+    <p> repodata using createrepo</p>
+    <li>Copy rhelX.repo to all systems</li>
+    <li>Run yum install –y on all systems</li>
+    <li>Validate that patching worked</li>
+  </ul>
+  <h3 ><b>Summery of Next Steps</b></h3>
+  <ul>
+    <li>Create DVDs of install ISO, since</li>
+    <p> Patches, update_repo.bash,</p>
+    <p> repo files</p>
+    <li>Create directories patchfiles</li>
+    <p> and patchISOs</p>
+    <li>Copy DVD’s data to correct</li>
+    <p> location</p>
+    <li>Run update_repo.bash</li>
+    <li>Copy package out of ISO to</li>
+    <p> repositories</p>
+    <li>Update ADDON repositories with</li>
+    <p> repodata using createrepo</p>
+    <li>Copy rhelX.repo to all systems</li>
+    <li>Run yum install –y on all systems</li>
+    <li>Validate that patching worked</li>
+  </ul>
+  <h3 ><b>Summery of Next Steps</b></h3>
+  <ul>
+    <li>Create DVDs of install ISO, since</li>
+    <p> Patches, update_repo.bash,</p>
+    <p> repo files</p>
+    <li>Create directories patchfiles</li>
+    <p> and patchISOs</p>
+    <li>Copy DVD’s data to correct</li>
+    <p> location</p>
+    <li>Run update_repo.bash</li>
+    <li>Copy package out of ISO to</li>
+    <p> repositories</p>
+    <li>Update ADDON repositories with</li>
+    <p> repodata using createrepo</p>
+    <li>Copy rhelX.repo to all systems</li>
+    <li>Run yum install –y on all systems</li>
+    <li>Validate that patching worked</li>
+  </ul>
+  <h3 ><b>Summery of Next Steps</b></h3>
+  <ul>
+    <li>Create DVDs of install ISO, since</li>
+    <p> Patches, update_repo.bash,</p>
+    <p> repo files</p>
+    <li>Create directories patchfiles</li>
+    <p> and patchISOs</p>
+    <li>Copy DVD’s data to correct</li>
+    <p> location</p>
+    <li>Run update_repo.bash</li>
+    <li>Copy package out of ISO to</li>
+    <p> repositories</p>
+    <li>Update ADDON repositories with</li>
+    <p> repodata using createrepo</p>
+    <li>Copy rhelX.repo to all systems</li>
+    <li>Run yum install –y on all systems</li>
+    <li>Validate that patching worked</li>
+  </ul>
+  <h3 ><b>Summery of Next Steps</b></h3>
+  <ul>
+    <li>Create DVDs of install ISO, since</li>
+    <p> Patches, update_repo.bash,</p>
+    <p> repo files</p>
+    <li>Create directories patchfiles</li>
+    <p> and patchISOs</p>
+    <li>Copy DVD’s data to correct</li>
+    <p> location</p>
+    <li>Run update_repo.bash</li>
+    <li>Copy package out of ISO to</li>
+    <p> repositories</p>
+    <li>Update ADDON repositories with</li>
+    <p> repodata using createrepo</p>
+    <li>Copy rhelX.repo to all systems</li>
+    <li>Run yum install –y on all systems</li>
+    <li>Validate that patching worked</li>
+  </ul>
+  <h3 ><b>Summery of Next Steps</b></h3>
+  <ul>
+    <li>Create DVDs of install ISO, since</li>
+    <p> Patches, update_repo.bash,</p>
+    <p> repo files</p>
+    <li>Create directories patchfiles</li>
+    <p> and patchISOs</p>
+    <li>Copy DVD’s data to correct</li>
+    <p> location</p>
+    <li>Run update_repo.bash</li>
+    <li>Copy package out of ISO to</li>
+    <p> repositories</p>
+    <li>Update ADDON repositories with</li>
+    <p> repodata using createrepo</p>
+    <li>Copy rhelX.repo to all systems</li>
+    <li>Run yum install –y on all systems</li>
+    <li>Validate that patching worked</li>
+  </ul>
+  <h3 ><b>Summery of Next Steps</b></h3>
+  <ul>
+    <li>Create DVDs of install ISO, since</li>
+    <p> Patches, update_repo.bash,</p>
+    <p> repo files</p>
+    <li>Create directories patchfiles</li>
+    <p> and patchISOs</p>
+    <li>Copy DVD’s data to correct</li>
+    <p> location</p>
+    <li>Run update_repo.bash</li>
+    <li>Copy package out of ISO to</li>
+    <p> repositories</p>
+    <li>Update ADDON repositories with</li>
+    <p> repodata using createrepo</p>
+    <li>Copy rhelX.repo to all systems</li>
+    <li>Run yum install –y on all systems</li>
+    <li>Validate that patching worked</li>
+  </ul>
+  <h3 ><b>Step 2 - Get What You Need</b></h3>
+  <ul>
+    <li>Based on the list you created in step 1</li>
+    <li>Locate the Install ISO’s</li>
+    <li>\\apfs.tuc.us.ray.com\projs\vdeploy\SHB<u> </u>Repository\STANDARD\RHEL&lt;X&gt;</li>
+    <ul>
+      <li>rhel&lt;X.X&gt;-Server-sb&lt;Xxx&gt;.iso</li>
+      <li> rhel&lt;X.X&gt;-Server-sb&lt;Xxx&gt;-checksum.txt </li>
+      <li>rhel&lt;X.X&gt;-Workstation-sb&lt;Xxx&gt;.iso </li>
+      <li>rhel&lt;X.X&gt;-Workstation-sb&lt;Xxx&gt;-checksum.txt</li>
+    </ul>
+    <li>Burn to your OS ISO bootable(s) “ISO DVD”</li>
+    <p>(Note: you can combine files on DVD or Blu-ray, for documentation sake we will treat them as separate DVD's)</p>
+  </ul>
+  <h3 ><b>Step 3 - Get What You Need</b></h3>
+  <ul>
+    <li>Based on the list you created in step 1</li>
+    <li>Locate Since Patches</li>
+    <ul>
+      <li><u>\\apfs.tuc.us.ray.com\projs\vdeploy\catalog\Linux_patches\RHEL&lt;X.X&gt;</u></li>
+      <li>r&lt;X.X&gt;since.tqz</li>
+      <li>rhelsincechecksums.txt </li>
+      <li>update_repo.bash</li>
+    </ul>
+    <li>Burn to DVD “Since DVD”</li>
+    <p>(Note: you can combine files on one DVD or Blu-ray, for documentation sake we will treat them as separate DVD's)
+    </p>
+  </ul>
+  <h3 ><b>Step 4 - Get What You Need</b></h3>
+  <ul>
+    <li>Get repo files that point to the location of the patches</li>
+    <ul>
+      <li>\\apfs.tuc.us.ray.com\projs\vdeploy\catalog\Linux_patches\RHEL&lt;X.X&gt;</li>
+      <li>rhel6 (this is the repo file)</li>
+      <li>rhel7 (this is the repo file)</li>
+    </ul>
+    <li>Burn to DVD “repo DVD”</li>
+    <p>(Note: you can combine files on one DVD or Blu-ray, for documentation sake we will treat them as separate DVD's)
+    </p>
+  </ul>
+  <h3 ><b>Step 5 – Create top directories</b></h3>
+  <p>Create the following:</p>
+  <p># mkdir -p /apps/repos/redhat/patchISOs</p>
+  <p># chmod 755 /apps/repos/redhat/patchISOs</p>
+  <p># mkdir -p /apps/repos/redhat/patchfiles</p>
+  <p># chmod 755 /apps/repos/redhat/patchfiles</p>
+  <p>Note: &quot;/apps/repos&quot; needs to be an auto mount usually on the</p>
+  <p>Netapp (file server). (For information refer to training on </p>
+  <p>auto mounting)</p>
+  <h3 ><b>Step 6 – Copy DVD’s to proper location</b></h3>
+  <p>Copy REPO DVD to /apps/repos/patchfiles:</p>
+  <p># mount /dev/sr0 /mnt</p>
+  <p># rsync -av /mnt/ /apps/repos/patchfiles</p>
+  <p># umount /mnt</p>
+  <p>Give Script execute permission:</p>
+  <p># chmod 750 /apps/repos/redhat/patchfiles/*</p>
+  <p>Copy Install ISO DVD to /apps/repos/patchISOs :</p>
+  <p># mount /dev/sr0 /mnt</p>
+  <p># rsync -av /mnt/ /apps/repos/patchISOs</p>
+  <p># umount /mnt</p>
+  <p>Copy Since DVD to /apps/repos/patchfiles :</p>
+  <p># mount /dev/sr0 /mnt</p>
+  <p># rsync -av /mnt/ /apps/repos/patchfiles</p>
+  <p># umount /mnt</p>
+  <h3 ><b>Step 7 – Run update_repo.bash</b></h3>
+  <p>Run the update_repo.bash script. This will finish creating the directory structure for the repository, put the
+    “since
+    patches” into the proper directories. Then create repodata for “since patches” by running createrepo.</p>
+  <p><b># umask 022</b></p>
+  <p><b># /apps/repos/redhat/patchfiles/update_repo.bash /apps/repos</b></p>
+  <h3 ><b>Step 8 – Copy Install ISO data into repo structure</b></h3>
+  <p>RHEL7.X Server:&nbsp;</p>
+  <p><b># mount –o loop /apps/repo/redhat/patchISOs/&lt;RHEL7XServ&gt;.iso /mnt</b></p>
+  <p><b># rsync -av /mnt/ /apps/repos/redhat/7/server</b></p>
+  <p><b># umount /mnt</b></p>
+  <p><b>&nbsp;</b></p>
+  <p>RHEL7.X Workstation:&nbsp;</p>
+  <p><b># mount –o loop /apps/repo/redhat/patchISOs/&lt;RHEL7XWork&gt;.iso /mnt</b></p>
+  <p><b># rsync -av /mnt/ /apps/repos/redhat/7/workstation</b></p>
+  <p><b># umount /mnt</b></p>
+  <p><b>&nbsp;</b></p>
+  <p>RHEL6.X Server:&nbsp;</p>
+  <p><b># mount –o loop /apps/repo/redhat/patchISOs/&lt;RHEL6XServ&gt;.iso /mnt</b></p>
+  <p><b># rsync -av /mnt/ /apps/repos/redhat/6/server</b></p>
+  <p><b># umount /mnt</b></p>
+  <p><b>&nbsp;</b></p>
+  <p>RHEL6.X Workstation:&nbsp;</p>
+  <p><b># mount –o loop /apps/repo/redhat/patchISOs/&lt;RHEL6XWork&gt;.iso /mnt </b></p>
+  <p><b># rsync -av /mnt/ /apps/repos/redhat/6/workstation</b></p>
+  <p><b># umount /mnt</b></p>
+  <h3 ><b>Look at the repo files </b></h3>
+  </div>
+ 
+{% endblock %}
+
+
+<!-- right nav  -->
+{%block right_nav %}
+<div class="right-links">
+  <a id="select-right" href="{{ url_for('linux')}}">Training</a>
+
+  <a href="{{ url_for('videos')}}">Videos</a>
+
+  <a  href="{{ url_for('cheatsheet')}}">Cheatsheet</a>
+ </div>
+{% endblock %}
+<!-- <div class="right-links">
+
+
+  <a id="select-right" href="{{ url_for('linux')}}">Training</a>
+
+  <a href="{{ url_for('videos')}}">Videos</a>
+
+  <a  href="{{ url_for('cheatsheet')}}">Cheatsheet</a>
+
+  <a href="{{ url_for('tasks')}}">My Tasks</a>
+
+  <a href="/">My Notes</a>
+
+  <a href="/">Team Notes</a>
+</div> -->
+<!-- <div class="right-links">
+<a href="/">Videos</a>
+
+<a href="/">Open Terminal</a>
+
+<a href="/">Cheatsheet</a>
+
+<a href="/">My Notes</a>
+
+<a href="/">Team Notes</a>
+</div> -->

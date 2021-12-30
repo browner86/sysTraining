@@ -1,0 +1,242 @@
+{% extends 'base.html' %}
+{% block title %}{{ title }} {% endblock %}
+{% block content %}
+
+<div class="task-content">
+
+    <div class="task-content-head">
+        <h1>Tasks</h1>
+        <hr>
+    </div>
+    <div class="task-intro">
+        <h1>Task: Patching Linux</h1>
+        <h2>Regular Patch Cycle</h2>
+        <div id="patching-Progress">
+            <div id="patching-Bar">25% complete</div>
+        </div>
+        
+    </div>
+    <div id="patching-task-1" class="task-content-body">
+        <div class="task-description">
+            <h2>Step 1</h2>
+
+            <p>From your PC use CDBurnXP to burn copies "since patches" to DVD:</p>
+            <!-- <ul> -->
+            <!-- <li> -->
+            <p>Location:</p>
+            <code>\\apfs.tuc.us.ray.com\projs\vdeploy\catalog\Linux_patches\RHELX.X</code>
+            <!-- </li> -->
+            <!-- <li> -->
+            <p> Navigage into correct month of "since" directory</p>
+            <!-- </li> -->
+            <!-- <li> -->
+            <p> Add these files to be burnt to DVD:</p>
+            <code> rX.Xsince.tqz
+                rhelsincechecksums.txt
+                update_repo.bash</code>
+            <!-- </li> -->
+            <!-- <li> -->
+            <p> Burn DVD</p>
+            <!-- </li> -->
+            <!-- </ul> -->
+        </div>
+        <div class="task-comment">
+            <h3>Comment</h3>
+
+            <p>This DVD will contain the following:</p>
+
+            <code> rX.Xsince.tqz</code><br>
+            <code>rhelsincechecksums.txt </code><br>
+            <code>update_repo.bash</code>
+
+        </div>
+        <div class="task-status">
+            <div class="task-status-status">
+                <h3>Status</h3>
+            </div>
+            <div class="task-status-dateCompleted">
+                <h3>Date Due</h3>
+            </div>
+            <div class="task-status-other">
+                <h3>Date Completed</h3>
+            </div>
+        </div>
+    </div>
+    <div id="patching-task-2" class="task-content-body">
+        <div class="task-description">
+            <h2>Step 2</h2>
+            <p> Copy "since patches" DVD to:</p> <code>/apps/repos/patchfiles</code>
+
+            <code># mount /dev/sr0 /mnt</code>
+            <code># rsync -av /mnt/ /apps/repos/patchfiles</code>
+            <code># umount /mnt</code>
+            
+        </div>
+        <div class="task-comment">
+            <h3>Comment</h3>
+
+        </div>
+        <div class="task-status">
+            <div class="task-status-status">
+                <h3>Status</h3>
+            </div>
+            <div class="task-status-dateCompleted">
+                <h3>Date Due</h3>
+            </div>
+            <div class="task-status-other">
+                <h3>Date Completed</h3>
+            </div>
+        </div>
+    </div>
+    <div id="patching-task-3" class="task-content-body">
+        <div class="task-description">
+            <h2>Step 3</h2>
+            <p>Give udpate_repo.bash execute permission and execute:</p>
+            <code># chmod +x /apps/repos/redhat/patchfiles/update_repo.bash</code>
+            <code># /apps/repos/redhat/patchfiles/update_repo.bash /apps/repos</code>
+ 
+        </div>
+        <div class="task-comment">
+            <h3>Comment</h3>
+            
+            <p>This script will move "since patches" into location its location</p>
+
+        </div>
+        <div class="task-status">
+            <div class="task-status-status">
+                <h3>Status</h3>
+            </div>
+            <div class="task-status-dateCompleted">
+                <h3>Date Due</h3>
+            </div>
+            <div class="task-status-other">
+                <h3>Date Completed</h3>
+            </div>
+        </div>
+    </div>
+
+    <div id="patching-task-4" class="task-content-body">
+        <div class="task-description">
+            <h2>Step 4</h2>
+            <p>Patch all systems:</p>
+                <code># yum clean all</code><br>
+                <code># yum repolist</code><br>
+                <code># yum update –y</code><br>
+                <p>(If you are ssh’ed into the system)</p>
+                <code># cd /var/tmp</code><br>
+                <code># nohup yum –y update &</code><br>
+                <code># tail –f /var/tmp/nohup.out</code><br>
+                <code># ctrl-c     (to exit tail command)</code><br>
+                <br>
+                <code># reboot</code><br>
+  
+           
+        </div>
+        <div class="task-comment">
+            <h3>Comment</h3>
+
+            <p><code># yum repolist </code>(Validates to have access to repos)</p>
+            <p>(If you are ssh’ed into the system)</p>
+            <code># cd /var/tmp</code><br>
+            <p><code># nohup yum –y update & </code> (screen output is captured in <code> /var/tmp/nohup.out</code>)</p>
+            
+  
+<p> <code># tail –f /var/tmp/nohup.out </code>  (watchs live output from yum update)
+<code># ctrl-c </code>     (to exit tail command) <br>
+
+<code># reboot</code>      (If it is a large patch or a maintenance release update such as a kernel update, then a reboot is required)<br>
+
+
+<br>(note: Enter the LUKS password after reboot if you are not using the updateluks.bash script.  If you are using the updateluks.bash script, then the you will need to run that script before all reboots when the kernel has been updated.)
+</p>
+        </div>
+        <div class="task-status">
+            <div class="task-status-status">
+                <h3>Status</h3>
+            </div>
+            <div class="task-status-dateCompleted">
+                <h3>Date Due</h3>
+            </div>
+            <div class="task-status-other">
+                <h3>Date Completed</h3>
+            </div>
+        </div>
+    </div>
+    <div id="patching-task-5" class="task-content-body">
+        <div class="task-description">
+            <h2>Step 5</h3>
+
+            
+        </div>
+        <div class="task-comment">
+            <h3>Comment</h3>
+
+            <p>This DVD will contain the following:</p>
+
+            <code> rX.Xsince.tqz</code><br>
+            <code>rhelsincechecksums.txt </code><br>
+            <code>update_repo.bash</code>
+
+        </div>
+        <div class="task-status">
+            <div class="task-status-status">
+                <h3>Status</h3>
+            </div>
+            <div class="task-status-dateCompleted">
+                <h3>Date Due</h3>
+            </div>
+            <div class="task-status-other">
+                <h3>Date Completed</h3>
+            </div>
+        </div>
+    </div>
+    <div id="patching-task-6" class="task-content-body">
+        <div class="task-description">
+            <h2>Step 6</h2>
+
+            
+        </div>
+        <div class="task-comment">
+            <h3>Comment</h3>
+
+            <p>This DVD will contain the following:</p>
+
+            <code> rX.Xsince.tqz</code><br>
+            <code>rhelsincechecksums.txt </code><br>
+            <code>update_repo.bash</code>
+
+        </div>
+        <div class="task-status">
+            <div class="task-status-status">
+                <h3>Status</h3>
+                <input type">
+            </div>
+            <div class="task-status-dateCompleted">
+                <h3>Date Due</h3>
+            </div>
+            <div class="task-status-other">
+                <h3>Date Completed</h3>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block right_nav %}
+<div class="right-links">
+
+
+    <a id="select-right" href="{{ url_for('linux')}}">Training</a>
+
+    <a href="{{ url_for('videos')}}">Videos</a>
+
+    <a  href="{{ url_for('cheatsheet')}}">Cheatsheet</a>
+
+    <a href="{{ url_for('tasks')}}">My Tasks</a>
+
+    <a href="/">My Notes</a>
+
+    <a href="/">Team Notes</a>
+    </div>
+
+
+      {% endblock %}

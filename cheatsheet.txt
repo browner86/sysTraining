@@ -1,0 +1,8 @@
+#!/user/bin/bash
+
+$ conda activate ray
+$ export FLASK_ENV=development
+$ export FLASK_APP=app.py
+$ flask run
+
+

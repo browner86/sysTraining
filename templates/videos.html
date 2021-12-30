@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block title %}{{ title }} {% endblock %}
+{% block left_nav%}
+<div class="left-side-nav side-nav" id="left-nav">
+  <a class="btn" href="/">General</a>
+  <a class="btn" href="/">Cron</a>
+  <a class="btn" href="/">Commands</a>
+  <a  id="select-left" class="select"  href="/">Patching</a>
+  <a class="btn" href="/">Auto-Mounting</a>
+  <a class="btn" href="/">Scripts</a>
+  <a class="btn" href="/">Password</a>
+  <a class="btn" href="/">Vim</a>
+  <a class="btn" href="/">Security</a>
+  <a class="btn" href="/">Bash</a>
+  <a class="btn" href="/">SH</a>
+  <a class="btn" href="/">KSH</a>
+  <a class="btn" href="/">CSH</a>
+  <a class="btn" href="/">Boot-up</a>
+  <a class="btn" href="/">systemd</a>
+
+</div>
+
+{% endblock %}
+{% block content %}
+<div class="video-content">
+  <div class="content-head">
+    <h1>{{name}}</h1>
+    <hr>
+  </div>
+  <div class="video-intro">
+    <h1>Training: Patching Linux</h1>
+  </div>
+  <div class="video-body">
+    <video width="100%" controls>
+      <source src="{{url_for('static', filename='video/LinuxPatching.mp4')}}" type="video/mp4">
+
+      Your browser does not support the video tag.
+    </video>
+    {% include 'terminal.html' %}
+  </div>
+</div>
+{% endblock %}
+
+{% block right_nav %}
+<div class="right-links">
+    <a href="{{ url_for('linux')}}">Training</a>
+
+    <a id="select-right" href="{{ url_for('videos')}}">Videos</a>
+
+    <a  href="{{ url_for('cheatsheet')}}">Cheatsheet</a>
+   </div>
+  {% endblock %}
